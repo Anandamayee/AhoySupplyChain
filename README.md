@@ -6,28 +6,28 @@ The blockchain-based tea supply chain management system ensures transparency, tr
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**Architectural overview of the Application **</span>
 
-![TeaSupplychain Architecture drawio](https://github.com/user-attachments/assets/8b33ea50-21db-4ab3-b02c-81c271d8aacf)
+![TeaSupplychain Architecture drawio](https://github.com/user-attachments/assets/f16ee2fd-b003-40a3-918d-df7b9c2db1ce)
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**Auth Service APIS **</span>
 
-![AuthService drawio (1)](https://github.com/user-attachments/assets/e732cca6-641a-44e4-8327-bb4685aabb45)
+![AuthService drawio (1)](https://github.com/user-attachments/assets/f0765c4b-8ac9-4005-82e6-b8e34056e313)
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**FARMER APIS **</span>
 
-![FarmerService drawio](https://github.com/user-attachments/assets/ed12d9b7-f1e6-4bb9-99c3-8010eee7bfa1)
+![FarmerService drawio](https://github.com/user-attachments/assets/9c9b5698-f9ec-47f4-8c4f-5b838e917a93)
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**PROCESSOR APIS **</span>
 
-![Processor drawio](https://github.com/user-attachments/assets/abdc9acb-d42b-4db2-a47a-cdb895a452db)
+![Processor drawio](https://github.com/user-attachments/assets/de25b800-07d2-4d44-bfac-c667a3144eb5)
 
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**TRANSPORTER APIS**</span>
 
-![Transporter drawio](https://github.com/user-attachments/assets/fd6a6f1c-c22b-4be4-9a91-00dc824439b8)
+![Transporter drawio](https://github.com/user-attachments/assets/855ce05a-86d2-43d6-85a1-dee246206c99)
 
 ## 🛠️ <span style="color: #4CAF50; font-size: 2.5em; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); border-bottom: 2px solid #4CAF50; padding-bottom: 10px; display: block; margin-bottom: 20px;">**Contract Flow**</span>
 
-![Contract drawio](https://github.com/user-attachments/assets/93ab7d0c-8d9f-4513-a454-001f889bdaa7)
+![Contract drawio](https://github.com/user-attachments/assets/0d7551fa-f53a-4ea5-b976-905b47112582)
 
 
 CONSUMER can see the entire tea lifecycle with a QR code scan.

@@ -1,0 +1,204 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/signUp": {
+      "post": {
+        "operationId": "AuthController_RegisterUser",
+        "summary": "Register User to Blockchain",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "GSTNO : Registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["UserAuth"]
+      }
+    },
+    "/auth/signIn": {
+      "post": {
+        "operationId": "AuthController_SignInUser",
+        "summary": "User Login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Logined sucessfully ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResposne"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["UserAuth"]
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "operationId": "AuthController_Logout",
+        "summary": "Logout user",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Loged Out sucessfully"
+          }
+        },
+        "tags": ["UserAuth"]
+      }
+    },
+    "/auth/user": {
+      "get": {
+        "operationId": "AuthController_getUserDetails",
+        "summary": "Get user details",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": ["UserAuth"]
+      }
+    }
+  },
+  "info": {
+    "title": "",
+    "description": "Tea Supply Chain Management APIs",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateUserDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name",
+            "example": "User Name"
+          },
+          "role": {
+            "type": "string",
+            "description": "User role",
+            "example": "Farmer",
+            "enum": ["Farmer", "Processor"]
+          },
+          "firmName": {
+            "type": "string",
+            "description": "firm name",
+            "example": "tea farm"
+          },
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "Mobile number",
+            "example": "0987654321"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password ",
+            "example": "0987654321"
+          }
+        },
+        "required": [
+          "name",
+          "role",
+          "firmName",
+          "GSTNumber",
+          "mobileNumber",
+          "password"
+        ]
+      },
+      "LoginUserDTO": {
+        "type": "object",
+        "properties": {
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password ",
+            "example": "0987654321"
+          }
+        },
+        "required": ["GSTNumber", "password"]
+      },
+      "LoginResposne": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "description": "Access token",
+            "example": "12345asdgcgf@agfvwrtg"
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "refresh token",
+            "example": "12345asdgcgf@agfvwrtg"
+          },
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          }
+        },
+        "required": ["accessToken", "refreshToken", "GSTNumber"]
+      }
+    }
+  }
+}

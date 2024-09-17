@@ -1,0 +1,737 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/farmer/createHarvest": {
+      "post": {
+        "operationId": "FarmerController_createHarvest",
+        "summary": "Create a new harvest entry",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateHarvestDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Harvest created successfully"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        },
+        "tags": [
+          "Farmer"
+        ]
+      }
+    },
+    "/farmer/getHarvestDetails": {
+      "get": {
+        "operationId": "FarmerController_getHarvestDetails",
+        "summary": "Fetch details of a specific harvest",
+        "parameters": [
+          {
+            "name": "harvestId",
+            "required": true,
+            "in": "query",
+            "description": "The unique identifier for the harvest.",
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isBlockchain",
+            "required": false,
+            "in": "query",
+            "description": "Flag to specify if the data should be fetched from the blockchain. Note This field is not Enabled For Time being",
+            "example": "true",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Harvest details fetched successfully"
+          },
+          "404": {
+            "description": "HarvestId not found"
+          }
+        },
+        "tags": [
+          "Farmer"
+        ]
+      }
+    },
+    "/farmer/getAllHarvestDetails": {
+      "get": {
+        "operationId": "FarmerController_getHarvestAllDetails",
+        "summary": "Fetch allharvest",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Harvest details fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HarvestModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Farmer"
+        ]
+      }
+    },
+    "/processor/createBatch": {
+      "post": {
+        "operationId": "ProcessorController_createBatch",
+        "summary": "Creates a batch from harvested tea",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBatchDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Batch created successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Processor"
+        ]
+      }
+    },
+    "/processor/updateTealeavesStatus": {
+      "post": {
+        "operationId": "ProcessorController_updateTealeavesStatus",
+        "summary": "Updates the status of tea leaves during processing",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpdateTealeavesStatusDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success response"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Processor"
+        ]
+      }
+    },
+    "/processor/getBatchDetails": {
+      "get": {
+        "operationId": "ProcessorController_getBatchDetails",
+        "summary": "Retrieves batch details",
+        "parameters": [
+          {
+            "name": "batchId",
+            "required": true,
+            "in": "query",
+            "description": "The unique identifier for the batch.",
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isBlockchain",
+            "required": false,
+            "in": "query",
+            "description": "Flag to specify if the data should be fetched from the blockchain. Note : not supported now",
+            "example": "true",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Batch details retrieved successfully"
+          },
+          "404": {
+            "description": "Batch not found"
+          }
+        },
+        "tags": [
+          "Processor"
+        ]
+      }
+    },
+    "/transporter/createStorage": {
+      "post": {
+        "operationId": "TransporterController_createStorage",
+        "summary": "Updates the storage details of a batch",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateStorageDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Storage details updated successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Transporter"
+        ]
+      }
+    },
+    "/transporter/createShipping": {
+      "post": {
+        "operationId": "TransporterController_createShipping",
+        "summary": "Creates shipping details for a batch",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateShippingDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Shipping details created successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Transporter"
+        ]
+      }
+    },
+    "/transporter/updateShippingStatus": {
+      "put": {
+        "operationId": "TransporterController_updateShippingStatus",
+        "summary": "Updates the shipping details of a batch",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UpdateShippingStatusDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shipping details updated successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Transporter"
+        ]
+      }
+    },
+    "/transporter/getShippingDetail": {
+      "get": {
+        "operationId": "TransporterController_getShippingDetail",
+        "summary": "Retrieves shipping details for a batch",
+        "parameters": [
+          {
+            "name": "batchId",
+            "required": true,
+            "in": "query",
+            "description": "The unique identifier for the batch.",
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isBlockchain",
+            "required": false,
+            "in": "query",
+            "description": "Flag to specify if the data should be fetched from the blockchain.",
+            "example": "true",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Shipping details retrieved successfully"
+          },
+          "404": {
+            "description": "Batch not found"
+          }
+        },
+        "tags": [
+          "Transporter"
+        ]
+      }
+    },
+    "/retailer/setRetailStatus": {
+      "post": {
+        "operationId": "RetailController_setRetailStatus",
+        "summary": "Updates the retail status of a batch",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SetRetailStatusDTO"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Retail status updated successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        },
+        "tags": [
+          "Retailer"
+        ]
+      }
+    },
+    "/consumer/{batchId}": {
+      "get": {
+        "operationId": "ConsumerController_fetchTealifecycle",
+        "summary": "Fetch Details Using BatchId",
+        "parameters": [
+          {
+            "name": "batchId",
+            "required": true,
+            "in": "path",
+            "description": "Batch ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Details has been fetched successfully."
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden."
+          }
+        },
+        "tags": [
+          "consumer"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": " (Tea Supply Chain Management APIs)",
+    "description": "The blockchain-based tea supply chain management system ensures transparency, traceability, and security from the tea plantation to the consumer. Each step in the tea supply chain is recorded on the blockchain, providing an immutable and transparent record of the tea's journey. ",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "http://localhost:5002",
+      "description": "Local environment"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "accessToken"
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "user"
+      }
+    },
+    "schemas": {
+      "CreateHarvestDTO": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number",
+            "description": "Quantity of the harvest In Kg",
+            "example": "100"
+          },
+          "quality": {
+            "type": "string",
+            "description": "Quality of the harvest",
+            "example": "VIP",
+            "enum": [
+              "VIP",
+              "Standard"
+            ]
+          },
+          "harvestDate": {
+            "type": "number",
+            "description": "Date of the harvest",
+            "example": "2024-08-29"
+          },
+          "teaType": {
+            "type": "string",
+            "description": "Tea Type Note : only ApsaraTea Type is allowed ",
+            "example": "ApsaraTea "
+          },
+          "location": {
+            "type": "string",
+            "description": "Location",
+            "example": "Gurgaon"
+          }
+        },
+        "required": [
+          "quantity",
+          "quality",
+          "harvestDate",
+          "teaType",
+          "location"
+        ]
+      },
+      "HarvestStatusModel": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "harvested",
+            "description": "Status of the harvest"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the status",
+            "example": "2023-03-01"
+          }
+        },
+        "required": [
+          "status",
+          "date"
+        ]
+      },
+      "HarvestModel": {
+        "type": "object",
+        "properties": {
+          "harvestId": {
+            "type": "string",
+            "example": "123456",
+            "description": "Unique identifier for the harvest"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1000,
+            "description": "Quantity harvested"
+          },
+          "quality": {
+            "type": "string",
+            "example": "High",
+            "description": "Quality of the harvest"
+          },
+          "harvestDate": {
+            "type": "string",
+            "example": "2024-01-01",
+            "description": "Date of the harvest"
+          },
+          "teaType": {
+            "type": "string",
+            "example": "ApsaraTea",
+            "description": "Type of tea",
+            "default": "ApsaraTea"
+          },
+          "location": {
+            "type": "string",
+            "example": "Darjeeling",
+            "description": "Location of the harvest"
+          },
+          "GSTNumber": {
+            "type": "string",
+            "example": "12A34BCD5E6F7G8",
+            "description": "GST number of the farmer"
+          },
+          "harvestStatus": {
+            "description": "Array of harvest statuses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HarvestStatusModel"
+            }
+          }
+        },
+        "required": [
+          "harvestId",
+          "quantity",
+          "quality",
+          "harvestDate",
+          "teaType",
+          "location",
+          "GSTNumber",
+          "harvestStatus"
+        ]
+      },
+      "CreateBatchDTO": {
+        "type": "object",
+        "properties": {
+          "harvestIds": {
+            "description": "Array of Harvest IDs to be processed into batches",
+            "example": [
+              "harvestId1",
+              "harvestId2",
+              "harvestId3"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "harvestIds"
+        ]
+      },
+      "UpdateTealeavesStatusDTO": {
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "type": "string",
+            "description": "Temporary Batch ID",
+            "example": "tempBatchId"
+          },
+          "status": {
+            "type": "string",
+            "description": "TeaLeaves status",
+            "example": "withering",
+            "enum": [
+              "withering",
+              "rolling",
+              "fermenting",
+              "drying",
+              "sorting"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "End dates",
+            "example": "2023-03-01"
+          }
+        },
+        "required": [
+          "batchId",
+          "status",
+          "date"
+        ]
+      },
+      "CreateStorageDTO": {
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "type": "string",
+            "description": "Batch ID",
+            "example": "batchId"
+          },
+          "humidity": {
+            "type": "string",
+            "description": "Humidity",
+            "example": "20.29"
+          },
+          "temperature": {
+            "type": "string",
+            "description": "Temperature",
+            "example": "30"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the Storage",
+            "example": "2023-03-01"
+          }
+        },
+        "required": [
+          "batchId",
+          "humidity",
+          "temperature",
+          "date"
+        ]
+      },
+      "CreateShippingDTO": {
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "type": "string",
+            "description": "Batch ID",
+            "example": "batchId"
+          },
+          "senderName": {
+            "type": "string",
+            "description": "Sender Name",
+            "example": "Gangu Bai"
+          },
+          "receiverName": {
+            "type": "string",
+            "description": "Receiver Name",
+            "example": "Ramu Kaka"
+          },
+          "carrierName": {
+            "type": "string",
+            "description": "Carrier Name",
+            "example": "DTDC, DELIVERY, BLUEDART"
+          },
+          "departureDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Departure date",
+            "example": "2023-03-01"
+          },
+          "arrivalDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Arrival date",
+            "example": "2023-03-05"
+          },
+          "status": {
+            "type": "string",
+            "description": "Transport Status",
+            "example": "Intransit",
+            "enum": [
+              "storage",
+              "inTransit",
+              "delivered",
+              "received"
+            ]
+          }
+        },
+        "required": [
+          "batchId",
+          "senderName",
+          "receiverName",
+          "carrierName",
+          "departureDate",
+          "arrivalDate",
+          "status"
+        ]
+      },
+      "UpdateShippingStatusDTO": {
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "type": "string",
+            "description": "Batch ID",
+            "example": "batchId"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "example": "delivered",
+            "enum": [
+              "storage",
+              "inTransit",
+              "delivered",
+              "received"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the Storage"
+          }
+        },
+        "required": [
+          "batchId",
+          "status",
+          "date"
+        ]
+      },
+      "SetRetailStatusDTO": {
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "type": "string",
+            "description": "Batch ID",
+            "example": "batchId"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "example": "Retailer",
+            "enum": [
+              "batched"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the harvest",
+            "example": "2024-08-09"
+          }
+        },
+        "required": [
+          "batchId",
+          "status",
+          "date"
+        ]
+      }
+    }
+  }
+}

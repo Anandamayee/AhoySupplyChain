@@ -1,0 +1,242 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/signUp": {
+      "post": {
+        "operationId": "AuthController_RegisterUser",
+        "summary": "Register User to Blockchain",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User Registered Sucessfully"
+          }
+        },
+        "tags": [
+          "UserAuth"
+        ]
+      }
+    },
+    "/auth/signIn": {
+      "post": {
+        "operationId": "AuthController_SignInUser",
+        "summary": "User Login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Logined sucessfully ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResposne"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "UserAuth"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "operationId": "AuthController_Logout",
+        "summary": "Logout user",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Loged Out sucessfully"
+          }
+        },
+        "tags": [
+          "UserAuth"
+        ]
+      }
+    },
+    "/auth/userDetails/{GSTNumber}": {
+      "get": {
+        "operationId": "AuthController_getUserDetails",
+        "summary": "Get user details",
+        "parameters": [
+          {
+            "name": "GSTNumber",
+            "required": true,
+            "in": "path",
+            "description": "22AAAAA0000A1Z5",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User details retrieved successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "tags": [
+          "UserAuth"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": " (Tea Supply Chain Management APIs)",
+    "description": "The blockchain-based tea supply chain management system ensures transparency, traceability, and security from the tea plantation to the consumer. Each step in the tea supply chain is recorded on the blockchain, providing an immutable and transparent record of the tea's journey.",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "http://localhost:5001",
+      "description": "Local environment"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "accessToken"
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "user"
+      }
+    },
+    "schemas": {
+      "CreateUserDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name",
+            "example": "User Name"
+          },
+          "role": {
+            "type": "string",
+            "description": "User role",
+            "example": "Farmer",
+            "enum": [
+              "Farmer",
+              "Processor",
+              "Transporter",
+              "Retailer"
+            ]
+          },
+          "firmName": {
+            "type": "string",
+            "description": "Firm name",
+            "example": "tea farm"
+          },
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "Mobile number",
+            "example": "0987654321"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password ",
+            "example": "0987654321"
+          },
+          "address": {
+            "type": "string",
+            "description": "Address",
+            "example": "Bengaluru"
+          }
+        },
+        "required": [
+          "name",
+          "role",
+          "firmName",
+          "GSTNumber",
+          "mobileNumber",
+          "password",
+          "address"
+        ]
+      },
+      "LoginUserDTO": {
+        "type": "object",
+        "properties": {
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password ",
+            "example": "0987654321"
+          }
+        },
+        "required": [
+          "GSTNumber",
+          "password"
+        ]
+      },
+      "LoginResposne": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success",
+            "example": "true"
+          },
+          "GSTNumber": {
+            "type": "string",
+            "description": "GSTNumber",
+            "example": "123456F"
+          },
+          "firmName": {
+            "type": "string",
+            "description": "firmName",
+            "example": "ABC"
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "accessToken",
+            "example": "etayuctyactguchuasc"
+          }
+        },
+        "required": [
+          "success",
+          "GSTNumber",
+          "firmName",
+          "accessToken"
+        ]
+      }
+    }
+  }
+}

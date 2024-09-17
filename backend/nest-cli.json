@@ -1,0 +1,75 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "user-auth/src",
+  "monorepo": true,
+  "root": "user-auth",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "user-auth/tsconfig.app.json"
+  },
+  "projects": {
+    "user-auth": {
+      "type": "application",
+      "root": "user-auth",
+      "entryFile": "main",
+      "sourceRoot": "user-auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "user-auth/tsconfig.app.json"
+      }
+    },
+    "tea-process": {
+      "type": "application",
+      "root": "tea-process",
+      "entryFile": "main",
+      "sourceRoot": "tea-process/src",
+      "compilerOptions": {
+        "tsConfigPath": "tea-process/tsconfig.app.json"
+      }
+    },
+    "db-utilites": {
+      "type": "library",
+      "root": "shared/db-utilites",
+      "entryFile": "index",
+      "sourceRoot": "shared/db-utilites/src",
+      "compilerOptions": {
+        "tsConfigPath": "shared/db-utilites/tsconfig.lib.json"
+      }
+    },
+    "eth-utilites": {
+      "type": "library",
+      "root": "shared/eth-utilites",
+      "entryFile": "index",
+      "sourceRoot": "shared/eth-utilites/src",
+      "compilerOptions": {
+        "tsConfigPath": "shared/eth-utilites/tsconfig.lib.json"
+      }
+    },
+    "queue-utilites": {
+      "type": "library",
+      "root": "shared/queue-utilites",
+      "entryFile": "index",
+      "sourceRoot": "shared/queue-utilites/src",
+      "compilerOptions": {
+        "tsConfigPath": "shared/queue-utilites/tsconfig.lib.json"
+      }
+    },
+    "user-guard": {
+      "type": "library",
+      "root": "shared/user-guard",
+      "entryFile": "index",
+      "sourceRoot": "shared/user-guard/src",
+      "compilerOptions": {
+        "tsConfigPath": "shared/user-guard/tsconfig.lib.json"
+      }
+    },
+    "exceptions": {
+      "type": "library",
+      "root": "shared/exceptions",
+      "entryFile": "index",
+      "sourceRoot": "shared/exceptions/src",
+      "compilerOptions": {
+        "tsConfigPath": "shared/exceptions/tsconfig.lib.json"
+      }
+    }
+  }
+}

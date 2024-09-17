@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: member-1
+    meta.helm.sh/release-namespace: cpc-bes
+  creationTimestamp: "2024-08-31T11:27:57Z"
+  labels:
+    app.kubernetes.io/component: service
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: besu-node-member-1
+    app.kubernetes.io/namespace: cpc-bes
+    app.kubernetes.io/part-of: besu-node-member-1
+    app.kubernetes.io/release: member-1
+  name: besu-node-member-1
+  namespace: cpc-bes
+  resourceVersion: "99946"
+  uid: 2cbbe204-45cb-4038-87e0-1a27abf57552
+spec:
+  clusterIP: 10.96.21.171
+  clusterIPs:
+  - 10.96.21.171
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: json-rpc
+    port: 8545
+    protocol: TCP
+    targetPort: json-rpc
+    nodePort: 8081
+  - name: ws
+    port: 8546
+    protocol: TCP
+    targetPort: ws
+  - name: graphql
+    port: 8547
+    protocol: TCP
+    targetPort: graphql
+  - name: rlpx
+    port: 30303
+    protocol: TCP
+    targetPort: rlpx
+  - name: discovery
+    port: 30303
+    protocol: UDP
+    targetPort: discovery
+  - name: metrics
+    port: 9545
+    protocol: TCP
+    targetPort: metrics
+  selector:
+    app.kubernetes.io/namespace: cpc-bes
+    app.kubernetes.io/part-of: besu-node-member-1
+    app.kubernetes.io/release: member-1
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

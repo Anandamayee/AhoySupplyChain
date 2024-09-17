@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MathUpgradeable",
+  "sourceName": "contracts/contracts-upgradeable/utils/math/MathUpgradeable.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212201dad3523a5b414685d7bbd790958d2e54aef9c03c67d2aef87641c0392ed636064736f6c634300081a0033",
+  "deployedBytecode": "0x600080fdfea26469706673582212201dad3523a5b414685d7bbd790958d2e54aef9c03c67d2aef87641c0392ed636064736f6c634300081a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

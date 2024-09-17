@@ -1,0 +1,13 @@
+
+
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+dist
+cpc_swagger.json
+auth_swagger.json
+opensslkey
+nginx
+scaling.sh
+config.env

@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "AddressUpgradeable",
+  "sourceName": "contracts/contracts-upgradeable/utils/AddressUpgradeable.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212205873171ea5b883c4fdd6a022eaf4fc69b222ff13319e754998bdda1292d5e97164736f6c634300081a0033",
+  "deployedBytecode": "0x600080fdfea26469706673582212205873171ea5b883c4fdd6a022eaf4fc69b222ff13319e754998bdda1292d5e97164736f6c634300081a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
